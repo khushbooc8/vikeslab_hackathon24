@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import { Button } from "./button";
 import { Flex, Heading } from "@radix-ui/themes";
 
 export interface NavbarProps {
@@ -13,9 +11,9 @@ export function Navbar() {
             justify={"between"}
             width={"100%"}
             maxWidth={"1200px"}
-            style={{ margin: "1rem 0" }}
+            style={{ padding: "1rem 1rem" }}
         >
-            <Heading as={"h1"}>ShareNotes</Heading>
+            <Heading as={"h1"}>NoteNetwork</Heading>
         </Flex>
     );
 }

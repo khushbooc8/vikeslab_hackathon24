@@ -2,34 +2,29 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Navbar } from "@/components/ui/navbar";
 import { Flex } from "@radix-ui/themes";
 import Link from "next/link";
-import { createNewClass } from "@/lib/firebase-db";
 import CreateClassForm from "@/components/ui/create-class";
+import { getAllClassInfo } from "@/lib/firebase-db";
 
-async function fetchCourses() {}
+type Topic = {
+    name: string;
+    links: {
+        name: {
+            url: string;
+            comment: string;
+            upvote: number;
+            downvote: number;
+        };
+    }[];
+};
 
-export default function Home() {
-    // function create\\
+type Course = {
+    name: string;
+    topicHeadings: Topic[];
+    count: number;
+};
 
-    // const cards = courses.map((course) => {
-    //     return (
-    //         <Link
-    //             href={`/course/${course.name.replaceAll(" ", "-").toLowerCase()}`}
-    //             key={course.name}
-    //         >
-    //             <Card>
-    //                 <CardContent className="grid grid-flow-row sm:grid-cols-[100px_1fr_100px] items-center gap-2 sm:gap-4 p-4">
-    //                     <span className="font-medium text-gray-500 dark:text-gray-400">
-    //                         {course.name}
-    //                     </span>
-    //                     <h3 className="font-medium">{course.description}</h3>
-    //                     <span className="text-right text-gray-500 dark:text-gray-400">
-    //                         {course.topics.length} topic{course.topics.length > 1 ? "s" : ""}
-    //                     </span>
-    //                 </CardContent>
-    //             </Card>
-    //         </Link>
-    //     );
-    // });
+export default async function Home() {
+    let courses = await getAllClassInfo();
 
     return (
         <main>
@@ -46,10 +41,32 @@ export default function Home() {
                         <div className="grid gap-1">
                             <h1 className="text-3xl font-bold tracking-tighter">UVic Courses</h1>
                             <p className="text-gray-500 dark:text-gray-400">
-                                {/* Browse our selection of {courses.length} courses. */}
+                                Browse our selection of {courses.length} courses.
                             </p>
                         </div>
-                        {/* <div className="grid gap-6">{cards}</div> */}
+                        <div className="grid gap-6">
+                            {Object.keys(courses).map((course, index) => {
+                                return (
+                                    <Link
+                                        href={`/course/${courses[course].name.toUpperCase()}`}
+                                        key={index}
+                                    >
+                                        <Card>
+                                            <CardContent className="grid grid-flow-row sm:grid-cols-[100px_1fr_100px] items-center gap-2 sm:gap-4 p-4">
+                                                <span className="font-medium">
+                                                    {courses[course].name}
+                                                </span>
+                                                <span></span>
+                                                <span className="text-right text-gray-500 dark:text-gray-400">
+                                                    {courses[course].count} topic
+                                                    {courses[course].count > 1 ? "s" : ""}
+                                                </span>
+                                            </CardContent>
+                                        </Card>
+                                    </Link>
+                                );
+                            })}
+                        </div>
                     </div>
                 </section>
 
