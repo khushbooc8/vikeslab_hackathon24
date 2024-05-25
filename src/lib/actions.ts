@@ -1,3 +1,5 @@
+import fs from "fs";
+
 export type Item = {
     id: string;
     name: string;
@@ -49,3 +51,28 @@ export const sampleData: Item[] = [
         unit: "kg",
     },
 ];
+
+function get_wal_data(filePath: string): Item[] {
+    const jsonData = fs.readFileSync(filePath, "utf-8");
+    const items: Item[] = [];
+
+    try {
+        const parsedData = JSON.parse(jsonData);
+
+        if (Array.isArray(parsedData)) {
+            for (const item of parsedData) {
+                if (item && item.__typename === "Product") {
+                    items.push(item as Item);
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Error parsing JSON:", error);
+    }
+
+    return items;
+}
+
+const filePath = "./walmart.json";
+const items = get_wal_data(filePath);
+console.log(items);
