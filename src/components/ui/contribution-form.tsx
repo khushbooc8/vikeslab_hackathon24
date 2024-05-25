@@ -16,6 +16,45 @@ import {
 
 export default function ContributeForm({ topics }: { topics: string[] }) {
     const [topic, setTopic] = useState<string | null>(null);
+    const [title, setTitle] = useState<string>("");
+    const [url, setUrl] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [otherTopic, setOtherTopic] = useState<string>("");
+
+    async function handleSubmit() {
+        if (!title || !url || !description || !topic) {
+            return;
+        }
+
+        if (topic === "other") {
+            if (!otherTopic) {
+                return;
+            }
+        }
+
+        const topicName = topic === "other" ? otherTopic : topic;
+
+        const response = await fetch("/api/contribute", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title,
+                url,
+                description,
+                topic: topicName,
+            }),
+        });
+
+        if (response.ok) {
+            setTitle("");
+            setUrl("");
+            setDescription("");
+            setOtherTopic("");
+            setTopic(null);
+        }
+    }
 
     return (
         <div className="space-y-6 w-full md:max-w-xl">
@@ -31,6 +70,8 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
                             <Input
                                 id="title"
                                 placeholder="Enter the title for the resource"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
                             />
                         </div>
                         <div className="grid gap-2">
@@ -38,6 +79,8 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
                             <Input
                                 id="url"
                                 placeholder="Enter the link URL"
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
                             />
                         </div>
                         <div className="grid gap-2">
@@ -46,6 +89,8 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
                                 id="comment"
                                 placeholder="How does this help?"
                                 rows={3}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
                         <div className="grid gap-2">
@@ -80,7 +125,7 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
                         </div>
                         <Button
                             className="w-full"
-                            type="submit"
+                            onClick={handleSubmit}
                         >
                             Submit
                         </Button>
