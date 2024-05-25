@@ -15,10 +15,7 @@ export function Navbar() {
             maxWidth={"1200px"}
             style={{ margin: "1rem 0" }}
         >
-            <Heading as={"h1"}>Grocies</Heading>
-            <Link href="/list">
-                <Button>List</Button>
-            </Link>
+            <Heading as={"h1"}>ShareNotes</Heading>
         </Flex>
     );
 }
