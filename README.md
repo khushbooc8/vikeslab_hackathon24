@@ -1,1 +1,1 @@
-# vikeslab_hackathon24
+# VikeLabs Hackathon 2024
