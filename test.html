@@ -1,0 +1,13 @@
+<head>
+  <script src="firebase-db.js"></script>
+</head>
+
+<body>
+  <script>
+    async function testGet() {
+        let data = await getAllClassInfo();
+        document.innerHTML = data;
+    }
+  </script>
+  <button onclick="testGet()">CLICK ME</button>
+</body>
