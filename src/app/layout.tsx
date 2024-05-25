@@ -12,8 +12,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-    title: "Grocies | Daily deals",
-    description: "Find the best deals on groceries in Victoria, BC",
+    title: "NoteNetwords",
+    description: "Find the best notes for your courses",
 };
 
 export default function RootLayout({

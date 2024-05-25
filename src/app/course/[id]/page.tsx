@@ -138,6 +138,8 @@ export default function CoursePage({ params }: { params: { id: string } }) {
         return <div>Course not found</div>;
     }
 
+    const topicLists = course.topics.map((topic) => topic.name);
+
     async function findURLTitle(url: string) {
         return fetch(url)
             .then((response) => response.text())
@@ -217,7 +219,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
                         ))}
                     </div>
                 </div>
-                <ContributeForm />
+                <ContributeForm topics={topicLists} />
             </div>
         </main>
     );
