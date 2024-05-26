@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ContributeForm from "@/components/ui/contribution-form";
 import { SVGProps } from "react";
-import { getClassInfo } from "@/lib/firebase-db";
+import { getClassInfo, updateUpvote } from "@/lib/firebase-db";
 import Link from "next/link";
 
 // course = {
@@ -60,6 +60,7 @@ export default async function CoursePage({ params }: { params: { id: string } })
                         className="text-gray-500 hover:text-gray-900 gap-1 dark:text-gray-400 dark:hover:text-gray-50"
                         size="icon"
                         variant="ghost"
+                        // onClick={() => updateUpvote(id, name)}
                     >
                         <ThumbsUpIcon className="h-5 w-5" />
                         <span>{upvote}</span>
@@ -98,7 +99,9 @@ export default async function CoursePage({ params }: { params: { id: string } })
                                         (resource, index2) => {
                                             return (
                                                 <Row
-                                                    name={course.topicHeadings[key][resource].name}
+                                                    key={index2}
+                                                    // name={course.topicHeadings[key][resource].name}
+                                                    name={resource}
                                                     url={course.topicHeadings[key][resource].url}
                                                     upvote={
                                                         course.topicHeadings[key][resource].upvote

@@ -2,8 +2,8 @@
   "node": {
     "04a972c7eae80859250d76d74870ab0e42049b48": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
-        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/page": "rsc",
@@ -12,8 +12,8 @@
     },
     "bca2dddaf674762413b0bd233ec23101cd97a500": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
-        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/page": "rsc",
@@ -22,8 +22,8 @@
     },
     "bd9788ab655e7049cd48ec5cbe5cf8663f45d075": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
-        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/page": "rsc",
@@ -32,8 +32,8 @@
     },
     "dfdfc802b90ac1a277e383287a2667765f193ee8": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
-        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/page": "rsc",
@@ -42,8 +42,18 @@
     },
     "f6087e45511d893ade6bc8bc86c457a4f67bb40d": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
-        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/course/[id]/page": "rsc"
+      }
+    },
+    "e3c5ba1294d8bcb5bec2162cca04ce62aa0cbe92": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!",
+        "app/course/[id]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjuliahoang%2FDocuments%2FPROGRAMMING%2Fgrocie%2Fsrc%2Flib%2Ffirebase-db.js%22%2C%5B%22testCreates%22%2C%22createNewClass%22%2C%22getAllClassInfo%22%2C%22getClassInfo%22%2C%22updateUpvote%22%2C%22createNewResource%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/page": "rsc",

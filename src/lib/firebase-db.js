@@ -59,7 +59,7 @@ export async function createNewResource(
 }
 
 //if a user likes a resources, update the upvote count
-/*
+
 export async function updateUpvote(classEncoding, topicName) {
     const topicRef = ref(database, `classes/${classEncoding}/${topicName}/upvote`);
     try {
@@ -75,7 +75,6 @@ export async function updateUpvote(classEncoding, topicName) {
         console.error("Error updating upvote:", error);
     }
 }
-*/
 
 //if a user downvotes a resource, update downvote count
 /*
