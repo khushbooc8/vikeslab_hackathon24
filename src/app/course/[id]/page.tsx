@@ -2,103 +2,157 @@ import { Button } from "@/components/ui/button";
 import ContributeForm from "@/components/ui/contribution-form";
 import { SVGProps } from "react";
 import { getClassInfo } from "@/lib/firebase-db";
+import Link from "next/link";
 
-export default function CoursePage({ params }: { params: { id: string } }) {
+// course = {
+//   topicHeadings: {
+//     'Algorithm Analysissss': { 'Big O notation': [Object] },
+//     'Algorithm Analysisssss': { 'Big O notation': [Object] },
+//     'Algorithm Analysissssss': { 'Big O notation': [Object] }
+//   },
+//   count: 3,
+//   name: 'CSC223'
+// }
+
+export default async function CoursePage({ params }: { params: { id: string } }) {
     const { id } = params;
-    const course = getClassInfo(id);
+    const course = await getClassInfo(id);
+
+    console.log(course);
 
     if (!course) {
         return <div>Course not found</div>;
     }
 
-    return <div>{course.name}</div>;
+    const topicLists = Object.keys(course.topicHeadings);
 
-    // const topicLists = course.topics.map((topic) => topic.name);
+    async function findURLTitle(url: string) {
+        return fetch(url)
+            .then((response) => response.text())
+            .then((html) => {
+                const titleRegex = /<title>(.*?)<\/title>/;
+                const match = titleRegex.exec(html);
+                return match ? match[1] : null;
+            });
+    }
 
-    // async function findURLTitle(url: string) {
-    //     return fetch(url)
-    //         .then((response) => response.text())
-    //         .then((html) => {
-    //             const titleRegex = /<title>(.*?)<\/title>/;
-    //             const match = titleRegex.exec(html);
-    //             return match ? match[1] : null;
-    //         });
-    // }
+    function Row({
+        name,
+        url,
+        upvote,
+        downvote,
+    }: {
+        name: string;
+        url: string;
+        upvote: number;
+        downvote: number;
+    }) {
+        return (
+            <div className="grid grid-cols-[1fr_auto] items-center gap-4">
+                <div>
+                    <h3 className="text-lg font-medium">{name}</h3>
+                    <Link href={url}>
+                        <p>{url}</p>
+                    </Link>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button
+                        className="text-gray-500 hover:text-gray-900 gap-1 dark:text-gray-400 dark:hover:text-gray-50"
+                        size="icon"
+                        variant="ghost"
+                    >
+                        <ThumbsUpIcon className="h-5 w-5" />
+                        <span>{upvote}</span>
+                    </Button>
+                    <Button
+                        className="text-gray-500 hover:text-gray-900 gap-1 align-center justify-center dark:text-gray-400 dark:hover:text-gray-50"
+                        size="icon"
+                        variant="ghost"
+                    >
+                        <ThumbsDownIcon className="h-5 w-5" />
+                        <span>{downvote}</span>
+                    </Button>
+                </div>
+            </div>
+        );
+    }
 
-    // function Row({
-    //     name,
-    //     url,
-    //     upvote,
-    //     downvote,
-    // }: {
-    //     name: string;
-    //     url: string;
-    //     upvote: number;
-    //     downvote: number;
-    // }) {
-    //     return (
-    //         <div className="grid grid-cols-[1fr_auto] items-center gap-4">
-    //             <div>
-    //                 <h3 className="text-lg font-medium">{name}</h3>
-    //                 <p className="text-gray-500 dark:text-gray-400">{url}</p>
-    //             </div>
-    //             <div className="flex items-center gap-2">
-    //                 <Button
-    //                     className="text-gray-500 hover:text-gray-900 gap-1 dark:text-gray-400 dark:hover:text-gray-50"
-    //                     size="icon"
-    //                     variant="ghost"
-    //                 >
-    //                     <ThumbsUpIcon className="h-5 w-5" />
-    //                     <span>{upvote}</span>
-    //                 </Button>
-    //                 <Button
-    //                     className="text-gray-500 hover:text-gray-900 gap-1 align-center justify-center dark:text-gray-400 dark:hover:text-gray-50"
-    //                     size="icon"
-    //                     variant="ghost"
-    //                 >
-    //                     <ThumbsDownIcon className="h-5 w-5" />
-    //                     <span>{downvote}</span>
-    //                 </Button>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+    console.log(Object.keys(course.topicHeadings));
 
-    // return (
-    //     <main className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
-    //         <div className="grid gap-8 lg:grid-cols-[1fr_300px] w-full">
-    //             <div>
-    //                 {/* Couse */}
-    //                 <div className="space-y-4">
-    //                     <h1 className="text-3xl font-bold">
-    //                         {course.name + " : " + course.description}
-    //                     </h1>
-    //                 </div>
+    return (
+        <main className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[1fr_300px] w-full">
+                <div>
+                    {/* Couse */}
+                    <div className="space-y-4">
+                        <h1 className="text-3xl font-bold">{course.name}</h1>
+                    </div>
 
-    //                 {/* Topics */}
-    //                 <div className="mt-16 space-y-10">
-    //                     {course.topics.map((topic) => (
-    //                         <div key={topic.name}>
-    //                             <h2 className="text-2xl font-bold">{topic.name}</h2>
-    //                             <div className="mt-4 space-y-4">
-    //                                 {topic.links.map((link) => (
-    //                                     <div
-    //                                         key={link.name}
-    //                                         className="grid grid-cols-[1fr_auto] items-center gap-4 md:mx-8"
-    //                                     >
-    //                                         <Row {...link} />
-    //                                     </div>
-    //                                 ))}
-    //                             </div>
-    //                         </div>
-    //                     ))}
-    //                 </div>
-    //             </div>
-    //             <ContributeForm topics={topicLists} />
-    //         </div>
-    //     </main>
-    // );
+                    {/* Topics */}
+                    <div className="mt-16 space-y-10">
+                        {Object.keys(course.topicHeadings).map((key, index) => {
+                            return (
+                                <>
+                                    <h1 className="text-2xl font-bold">{key}</h1>
+                                    {Object.keys(course.topicHeadings[key]).map(
+                                        (resource, index2) => {
+                                            return (
+                                                <Row
+                                                    name={course.topicHeadings[key][resource].name}
+                                                    url={course.topicHeadings[key][resource].url}
+                                                    upvote={
+                                                        course.topicHeadings[key][resource].upvote
+                                                    }
+                                                    downvote={
+                                                        course.topicHeadings[key][resource].downvote
+                                                    }
+                                                />
+                                            );
+                                        }
+                                    )}
+                                </>
+                            );
+                        })}
+                    </div>
+                </div>
+                <ContributeForm topics={topicLists} />
+            </div>
+        </main>
+    );
 }
+
+// {
+/* <div className="mt-4 space-y-4">
+    {course.topicHeadings.map((resource, index2) => (
+        <div
+            key={index2}
+            className="grid grid-cols-[1fr_auto] items-center gap-4 md:mx-8"
+        >
+            <p>{resource.url}</p>
+            {/* <p>{course.topicHeadings[key][key2].url}</p> */
+// }
+// {
+//     /* <Row {...link} /> */
+// }
+// </div>
+// ))}
+// </div>
+//     */}
+// {
+/* <div key={topic.name}>
+    <h2 className="text-2xl font-bold">{topic.name}</h2>
+    <div className="mt-4 space-y-4">
+        {topic.links.map((link) => (
+            <div
+                key={link.name}
+                className="grid grid-cols-[1fr_auto] items-center gap-4 md:mx-8"
+            >
+                <Row {...link} />
+            </div>
+        ))}
+    </div>
+</div>; */
+// }
 
 function ThumbsDownIcon(props: SVGProps<SVGSVGElement>) {
     return (

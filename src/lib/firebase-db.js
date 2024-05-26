@@ -201,11 +201,13 @@ export async function getClassInfo(classEncoding) {
         data.count = Object.keys(data.topicHeadings).length;
         data.name = classEncoding;
 
-        // Return the extracted data
+        // if (data["topicHeadings"] != null) data.topicHeadings = Object.values(data.topicHeadings);
         return data;
+
+        // Return the extracted data
     } catch (error) {
         console.error("Error fetching data:", error);
-        return;
+        return [];
     }
 }
 
