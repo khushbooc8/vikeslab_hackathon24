@@ -60,13 +60,14 @@ export async function createNewResource(
 
 //if a user likes a resources, update the upvote count
 
-export async function updateUpvote(classEncoding, topicName) {
-    const topicRef = ref(database, `classes/${classEncoding}/${topicName}/upvote`);
+export async function updateUpvote(classEncoding, topicName, resourceName) {
+    const upvoteRef = ref(database, `classes/${classEncoding}/topicHeadings/${topicName}/${resourceName}/upvote`);
     try {
-        const snapshot = await get(topicRef);
+        const snapshot = await get(upvoteRef);
+
         if (snapshot.exists()) {
             const currentUpvote = snapshot.val();
-            await update(topicRef, currentUpvote + 1);
+            await set(upvoteRef, currentUpvote + 1);
             console.log(`Upvote count updated successfully for ${topicName} in ${classEncoding}`);
         } else {
             console.error("Topic does not exist.");
@@ -77,29 +78,23 @@ export async function updateUpvote(classEncoding, topicName) {
 }
 
 //if a user downvotes a resource, update downvote count
-/*
-export async function updateDownvote(classEncoding, topicName) {
-        const topicRef = ref(database, `classes/${classEncoding}/${topicName}/downvote`);
-        try {
-            const snapshot = await get(topicRef);
-            if (snapshot.exists()) {
-                const currentDownvote = snapshot.val();
-                await update(topicRef, currentDownvote + 1);
-                console.log(`currentDownvote count updated successfully for ${topicName} in ${classEncoding}`);
-            } else {
-                console.error("Topic does not exist.");
-            }
-        } catch (error) {
-            console.error("Error updating downvote:", error);
-        }
-    }
-*/
+// TODO: make these one function
+export async function updateDownvote(classEncoding, topicName, resourceName) {
+    const downvoteRef = ref(database, `classes/${classEncoding}/topicHeadings/${topicName}/${resourceName}/downvote`);
+    try {
+        const snapshot = await get(downvoteRef);
 
-// const AllInfoStructure = [
-//   "CSC225": 5, // 5 topics
-//   "CSC226": 3, // 3 topics
-//   "CSC227": 4, // 4 topics
-// ]
+        if (snapshot.exists()) {
+            const currentDownvote = snapshot.val();
+            await set(downvoteRef, currentDownvote + 1);
+            console.log(`Upvote count updated successfully for ${topicName} in ${classEncoding}`);
+        } else {
+            console.error("Topic does not exist.");
+        }
+    } catch (error) {
+        console.error("Error updating upvote:", error);
+    }
+}
 
 export async function getAllClassInfo() {
     const rootRef = ref(database, "classes/");
@@ -145,43 +140,6 @@ export async function getAllClassInfo() {
         return [];
     }
 }
-
-// const sampleDataForGetClassInfo = {
-//     name: "CSC 115",
-//     topics: [
-//         {
-//             name: "Python",
-//             links: [
-//                 {
-//                     name: "Python.org",
-//                     url: "https://www.python.org/",
-//                     comment: "Official Python website",
-//                     upvote: 10,
-//                     downvote: 2,
-//                 },
-//                 {
-//                     name: "Real Python",
-//                     url: "https://realpython.com/",
-//                     comment: "Great for beginners",
-//                     upvote: 5,
-//                     downvote: 1,
-//                 },
-//             ],
-//         },
-//         {
-//             name: "Java",
-//             links: [
-//                 {
-//                     name: "Java.com",
-//                     url: "https://www.java.com/",
-//                     upvote: 7,
-//                     downvote: 3,
-//                     comment: "Official Java website",
-//                 },
-//             ],
-//         },
-//     ],
-// };
 
 export async function getClassInfo(classEncoding) {
     const classRef = ref(database, "classes/" + classEncoding);
