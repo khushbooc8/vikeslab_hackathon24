@@ -1,6 +1,6 @@
 // firebase-db.js
 "use server";
-import { ref, set, get } from "firebase/database";
+import { ref, set, get, push } from "firebase/database";
 import { database } from "./firebase-init.js";
 
 //if class doesn't exist, the user clicks the 'Add Class' button and then creates a class before adding data
@@ -197,7 +197,13 @@ export async function getClassInfo(classEncoding) {
             return {};
         }
 
-        data.count = Object.keys(data.topicHeadings).length;
+        if (data["topicHeadings"] == null) {
+            data.count = 0;
+            data.topicHeadings = {};
+        } else {
+            data.count = Object.keys(data["topicHeadings"]).length;
+        }
+
         data.name = classEncoding;
 
         // if (data["topicHeadings"] != null) data.topicHeadings = Object.values(data.topicHeadings);
