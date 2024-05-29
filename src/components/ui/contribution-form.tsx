@@ -14,7 +14,9 @@ import {
     Select,
 } from "@/components/ui/select";
 
-export default function ContributeForm({ topics }: { topics: string[] }) {
+import { createNewResource } from "@/lib/firebase-db";
+
+export default function ContributeForm({ topics, classEncoding }: { topics: string[], classEncoding: string}) {
     const [topic, setTopic] = useState<string | null>(null);
     const [title, setTitle] = useState<string>("");
     const [url, setUrl] = useState<string>("");
@@ -33,27 +35,15 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
         }
 
         const topicName = topic === "other" ? otherTopic : topic;
-
-        const response = await fetch("/api/contribute", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                title,
-                url,
-                description,
-                topic: topicName,
-            }),
-        });
-
-        if (response.ok) {
+        
+        createNewResource(classEncoding, topicName, title, url, description).then(() => {
             setTitle("");
             setUrl("");
             setDescription("");
             setOtherTopic("");
             setTopic(null);
-        }
+        });
+
     }
 
     return (
@@ -120,6 +110,7 @@ export default function ContributeForm({ topics }: { topics: string[] }) {
                                 <Input
                                     id="other-topic"
                                     placeholder="Enter the topic name"
+                                    onChange={(e) => setOtherTopic(e.target.value)}
                                 />
                             )}
                         </div>

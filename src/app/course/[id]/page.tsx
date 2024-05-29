@@ -53,7 +53,7 @@ export default async function CoursePage({ params }: { params: { id: string } })
                         })}
                     </div>
                 </div>
-                <ContributeForm topics={topicLists} />
+                <ContributeForm topics={topicLists} classEncoding={course.name} />
             </div>
         </main>
     );
